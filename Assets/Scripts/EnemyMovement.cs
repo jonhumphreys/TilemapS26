@@ -12,11 +12,23 @@ public class EnemyMovement : MonoBehaviour
 
     private EnemyState currentState;
     private Transform playerTransform;
+    private float attackCooldownTimer = 0f;
     
     public void Update()
     {
         CheckForPlayer();
+        TickAttackCooldown();
         HandleCurrentState();
+    }
+
+    private void TickAttackCooldown()
+    {
+        if (attackCooldownTimer > 0)
+        {
+            attackCooldownTimer = attackCooldownTimer -  Time.deltaTime;
+            if (attackCooldownTimer < 0)
+                attackCooldownTimer = 0;
+        }
     }
 
     private void HandleCurrentState()
@@ -26,6 +38,10 @@ public class EnemyMovement : MonoBehaviour
             Chase();
         }
         else if (currentState == EnemyState.Attacking)
+        {
+            StopMoving();
+        }
+        else if (currentState == EnemyState.Idle)
         {
             StopMoving();
         }
@@ -90,12 +106,16 @@ public class EnemyMovement : MonoBehaviour
         bool isInAttackRange = false;
         if (distanceToPlayer <= GameParameters.EnemyAttackRange)
             isInAttackRange = true;
-
-        if (isInAttackRange)
+        bool isAttackCooldownReady = false;
+        if (attackCooldownTimer <= 0)
+            isAttackCooldownReady = true;
+        
+        if (isInAttackRange && isAttackCooldownReady)
         {
             ChangeState(EnemyState.Attacking);
+            attackCooldownTimer = GameParameters.EnemyAttackCooldownSeconds;
         }
-        else
+        else if (!isInAttackRange)
         {
             ChangeState(EnemyState.Chasing);
         }
@@ -106,7 +126,6 @@ public class EnemyMovement : MonoBehaviour
         ExitCurrentAnimation();
         currentState = state;
         StartNewAnimation();
-        print("Enemy State: " + currentState);
     }
 
     private void ExitCurrentAnimation()

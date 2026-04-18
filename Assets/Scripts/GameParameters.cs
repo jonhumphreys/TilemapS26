@@ -9,6 +9,7 @@ public static class GameParameters
     public static float EnemyDetectRange = 5f;
     public static float EnemyAttackRange = 2f;
     public static float EnemyMoveSpeed = 3f;
+    public static float EnemyAttackCooldownSeconds = 1f;
 
     public static string EnemyAnimationIdleString = "IsIdle";
     public static string EnemyAnimationChasingString = "IsChasing";
