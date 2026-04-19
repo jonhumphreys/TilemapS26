@@ -2,9 +2,11 @@ using UnityEngine;
 
 public static class GameParameters
 {
-    public static float PlayerSpeed = 5f;
+    public static float PlayerMoveSpeed = 5f;
     public static int PlayerMaximumHealth = 10;
+    public static int PlayerDamage = -2;
 
+    public static int EnemyMaximumHealth = 6;
     public static float EnemyMinimumSpawnDelay = 1f;
     public static float EnemyMaximumSpawnDelay = 3f;
     public static float EnemyDetectRange = 5f;

@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
-        Rigidbody2D.linearVelocity = moveDirection * GameParameters.PlayerSpeed;
+        Rigidbody2D.linearVelocity = moveDirection * GameParameters.PlayerMoveSpeed;
     }
 
     private void Animate()
