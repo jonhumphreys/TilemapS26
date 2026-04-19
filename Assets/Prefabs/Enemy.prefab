@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 7617102805462865407}
   - component: {fileID: 4326727738051319226}
   - component: {fileID: -1434251041556778712}
+  - component: {fileID: 5525043879232801963}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -259,6 +260,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15087c077d284224383ac918494c4e2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  EnemyDrop: {fileID: 5525043879232801963}
+--- !u!114 &5525043879232801963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1154089952184082419}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4cb4c028467d54785cf86c113bbbe3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyDrop
+  InteractTilemap: {fileID: 0}
+  TileToPlace: {fileID: 11400000, guid: 6b6ebf56974600948a4bc0bde8842bc6, type: 2}
 --- !u!1 &8892454138326587608
 GameObject:
   m_ObjectHideFlags: 0

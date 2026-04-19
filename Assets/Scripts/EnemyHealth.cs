@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    public EnemyDrop EnemyDrop;
+    
     private int currentHealth;
     private int maximumHealth;
     
@@ -22,6 +24,7 @@ public class EnemyHealth : MonoBehaviour
 
         if (currentHealth == 0)
         {
+            EnemyDrop.SpawnTileOnEnemyDeath();
             Destroy(gameObject);
         }
     }
